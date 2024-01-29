@@ -46,7 +46,7 @@ class Ui {
     static deleteFromBook(target) {
         if (target.classList.contains('delete')) {
             target.parentElement.parentElement.remove();
-            store.removeBook(target.parentElement.previousElementSibling.textContent.trim());
+            Store.removeBook(target.parentElement.previousElementSibling.textContent.trim());
             Ui.showAlert('Book Removed!', 'success');
         }
     }
@@ -88,7 +88,7 @@ class Store {
 // Add event listener
 form.addEventListener('submit', newBook);
 booklist.addEventListener('click', removeBook);
-document.addEventListener('DOMContentLoaded', Store.displayBooks); // Change to Store.displayBooks instead of store.displayBooks()
+document.addEventListener('DOMContentLoaded', Store.displayBooks);
 
 // Define functions
 function newBook(e) {
@@ -103,7 +103,7 @@ function newBook(e) {
         Ui.addBookList(book);
         Ui.clearFields();
         Ui.showAlert("Book Added", "success");
-        Store.addBook(book); // Change to Store.addBook instead of store.addBook
+        Store.addBook(book);
     }
     e.preventDefault();
 }
